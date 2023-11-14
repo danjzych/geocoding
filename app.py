@@ -9,11 +9,13 @@ geolocator = Nominatim(user_agent="learning_how_toUse")
 
 def get_distance(location_a, location_b):
     """Function for getting distance between geocoded addresses"""
-    a = geolocator.geocode(location_a)
-    b = geolocator.geocode(location_b)
+    a = geolocator.geocode(f'{location_a}, USA')
+    b = geolocator.geocode(f'{location_b}, USA')
+    print(a)
+    print(b)
 
-    return distance.distance((a.latitude, a.longitude),
-                             (b.latitude, b.longitude)).miles
+    return round(distance.distance((a.latitude, a.longitude),
+                                   (b.latitude, b.longitude)).miles, 0)
 
 
 sears_tower = "233 S Wacker Dr, Chicago"
@@ -21,4 +23,5 @@ sears_tower = "233 S Wacker Dr, Chicago"
 # can work off partial address as seen below
 memorial_union = "800 Langdon St 53703"
 
-print(get_distance(sears_tower, memorial_union))
+print(get_distance(53704, 53701
+                   ))
